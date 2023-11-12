@@ -3,6 +3,7 @@ package House;
 import java.security.KeyStore;
 import java.sql.Array;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class House {
     public static void main(String[] args) {
@@ -15,6 +16,7 @@ public class House {
         personInfo.put(74, "Фролова Антонина Владимировна");
         personInfo.put(76, "Фролов Петр Борисович");
 
+
         System.out.println(personInfo);
 
         System.out.println("Удаляем элемент с ключом " + 8);
@@ -23,12 +25,19 @@ public class House {
         System.out.println("Удаляем элемент с ключом " + 12);
         personInfo.remove(12);
 
-        System.out.println("Все пары ключ-значение " + personInfo.entrySet());
+        System.out.println("Все пары ключ-значение старше 18 лет " + personInfo.entrySet());
 
-        for (Map.Entry<Integer , String> entry : personInfo.entrySet()) {
+        for (Map.Entry<Integer, String> entry : personInfo.entrySet()) {
             Integer key = entry.getKey();
             String value = entry.getValue();
             System.out.println("Возраст " + key + " ФИО " + value);
+
+            ArrayList<Integer> listOfKeys = personInfo.keySet().stream()
+                    .collect(Collectors.toCollection(ArrayList::new));
+
+            ArrayList<String> listOfValues = personInfo.values().stream()
+                    .collect(Collectors.toCollection(ArrayList::new));
+            System.out.println("Список жильцов " + listOfValues);
         }
     }
 }
