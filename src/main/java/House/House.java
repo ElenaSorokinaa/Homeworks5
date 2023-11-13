@@ -16,27 +16,19 @@ public class House {
         personInfo.put(74, "Фролова Антонина Владимировна");
         personInfo.put(76, "Фролов Петр Борисович");
 
-
-        System.out.println(personInfo);
-
-        System.out.println("Удаляем элемент с ключом " + 8);
-        personInfo.remove(8);
-
-        System.out.println("Удаляем элемент с ключом " + 12);
-        personInfo.remove(12);
-
-        System.out.println("Все пары ключ-значение старше 18 лет " + personInfo.entrySet());
-
         for (Map.Entry<Integer, String> entry : personInfo.entrySet()) {
             Integer key = entry.getKey();
             String value = entry.getValue();
-            System.out.println("Возраст " + key + " ФИО " + value);
+            if (key > 18)
+                System.out.println(value);
 
-            ArrayList<Integer> listOfKeys = personInfo.keySet().stream()
-                    .collect(Collectors.toCollection(ArrayList::new));
+            int[] emptyArray = new int[0];
+            String[] emptyStringArray = new String[0];
 
             ArrayList<String> listOfValues = personInfo.values().stream()
                     .collect(Collectors.toCollection(ArrayList::new));
+
+            Collections.sort(listOfValues);
             System.out.println("Список жильцов " + listOfValues);
         }
     }
