@@ -7,29 +7,25 @@ import java.util.stream.Collectors;
 
 public class House {
     public static void main(String[] args) {
-        Map<Integer, String> personInfo = new HashMap<>();
+        Map<String, Integer> personInfo = new HashMap<>();
 
-        personInfo.put(32, "Фролова Мария Ивановна");
-        personInfo.put(44, "Фролов Игорь Петрович");
-        personInfo.put(8, "Фролов Матвей Игоревич");
-        personInfo.put(12, "Фролова Алина Игоревна");
-        personInfo.put(74, "Фролова Антонина Владимировна");
-        personInfo.put(76, "Фролов Петр Борисович");
+        personInfo.put("Фролова Мария Ивановна", 32);
+        personInfo.put("Фролов Игорь Петрович", 44);
+        personInfo.put("Фролов Матвей Игоревич", 8);
+        personInfo.put("Фролова Алина Игоревна", 12);
+        personInfo.put("Фролова Антонина Владимировна", 74);
+        personInfo.put("Фролов Петр Борисович", 76);
 
-        for (Map.Entry<Integer, String> entry : personInfo.entrySet()) {
-            Integer key = entry.getKey();
-            String value = entry.getValue();
-            if (key > 18)
-                System.out.println(value);
+        ArrayList<String> ArrayFIO = new ArrayList<String>();
 
-            int[] emptyArray = new int[0];
-            String[] emptyStringArray = new String[0];
+        for (Map.Entry<String, Integer> entry : personInfo.entrySet()) {
+            if (entry.getValue() > 18)
+                ArrayFIO.add(entry.getKey());
+        }
 
-            ArrayList<String> listOfValues = personInfo.values().stream()
-                    .collect(Collectors.toCollection(ArrayList::new));
-
-            Collections.sort(listOfValues);
-            System.out.println("Список жильцов " + listOfValues);
+        Collections.sort(ArrayFIO);
+        for (int i=0; i<ArrayFIO.size(); i++) {
+            System.out.println(ArrayFIO.get(i));
         }
     }
 }
