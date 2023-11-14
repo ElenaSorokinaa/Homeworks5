@@ -13,16 +13,16 @@ public class House {
         personInfo.put("Фролова Антонина Владимировна", 74);
         personInfo.put("Фролов Петр Борисович", 76);
 
-        ArrayList<String> ArrayFIO = new ArrayList<String>();
+        ArrayList<String> ArrayFio = new ArrayList<String>();
 
         for (Map.Entry<String, Integer> entry : personInfo.entrySet()) {
             if (entry.getValue() > 18)
-                ArrayFIO.add(entry.getKey());
+                ArrayFio.add(entry.getKey());
         }
 
-        Collections.sort(ArrayFIO);
-        for (int i = 0; i < ArrayFIO.size(); i++) {
-            System.out.println(ArrayFIO.get(i));
+        Collections.sort(ArrayFio);
+        for (int i = 0; i < ArrayFio.size(); i++) {
+            System.out.println(ArrayFio.get(i));
         }
     }
 }
