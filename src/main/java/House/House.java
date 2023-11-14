@@ -24,7 +24,7 @@ public class House {
         }
 
         Collections.sort(ArrayFIO);
-        for (int i=0; i<ArrayFIO.size(); i++) {
+        for (int i = 0; i < ArrayFIO.size(); i++) {
             System.out.println(ArrayFIO.get(i));
         }
     }
